@@ -15,5 +15,5 @@ FROM nginx:alpine
 #COPY ./default.conf /etc/nginx/conf.d
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
-COPY --from=build-stage /myapp/build .
+COPY --from=build-stage /seh-webapp/build .
 ENTRYPOINT ["nginx","-g","daemon off;"]
