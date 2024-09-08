@@ -9,7 +9,7 @@ export default function Story() {
         href="https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap"
       />
       <div className="text-area-container">
-        <button class="publish-button">Launch</button>
+        <button className="publish-button">Launch</button>
         <textarea
           className="title-textarea"
           id="textAreaExample6"

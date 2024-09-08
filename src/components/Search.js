@@ -1,7 +1,14 @@
 import React from "react";
 import "../styles/Search.css";
+import { useNavigate } from 'react-router-dom';
 
 const Search = ({ value, handleSearchKey, clearSearch, formSubmit }) => {
+  const navigate = useNavigate(); // Get the navigate function
+
+  const handleClick = () => {
+    navigate("/my-story"); // Use navigate function to change the route
+  };
+
   return (
     <div className="container-fluid mx-auto" style={{ width: "50%" }}>
       <form className="d-flex" role="search" onSubmit={formSubmit}>
@@ -19,22 +26,22 @@ const Search = ({ value, handleSearchKey, clearSearch, formSubmit }) => {
           className="btn btn-outline-success margin-left margin-right"
           type="submit"
         >
-          Search{" "}
+          Search
         </button>
-        <a
+        
+        <div
           className="icon-link icon-link-hover link-success link-underline-success link-underline-opacity-40"
-          href="#"
           style={{
             display: "flex",
             alignItems: "center",
             textDecoration: "none",
             color: "inherit",
-            marginLeft: "1px", // Added margin to space out from button
+            marginLeft: "1px",
+            cursor: "pointer",
           }}
+          onClick={handleClick} // Attach click handler to the div
         >
           <div style={{ width: "40px", height: "40px" }}>
-            {" "}
-            {/* Adjust size if needed */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
@@ -53,13 +60,13 @@ const Search = ({ value, handleSearchKey, clearSearch, formSubmit }) => {
               />
             </svg>
           </div>
-          <span style={{ whiteSpace: "nowrap", marginLeft: "5px" }}>
+          <span style={{ whiteSpace: "nowrap", marginLeft: "5px", cursor: 'pointer' }}>
             write your own
-          </span>{" "}
-          {/* Spacing adjusted */}
-        </a>
+          </span>
+        </div>
       </form>
     </div>
   );
 };
+
 export default Search;
