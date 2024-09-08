@@ -1,22 +1,42 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "../styles/AboutUs.css";
 import "../styles/Home.css";
 import ButtonComp from "../components/ButtonComp";
+import classImg from "../assets/images/slider/ClassRoom.jpg";
+import sehImg from "../assets/images/slider/seh.jpg";
 
 const Home = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const imageArray = [classImg, sehImg];
+
+  const handleNextImage = useCallback(() => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageArray.length);
+  }, [imageArray.length]);
+
+  const handlePreviousImage = useCallback(() => {
+    setCurrentImageIndex((prevIndex) =>
+      (prevIndex - 1 + imageArray.length) % imageArray.length
+    );
+  }, [imageArray.length]);
+
+  useEffect(() => {
+    const interval = setInterval(handleNextImage, 3000);
+    return () => clearInterval(interval);
+  }, [handleNextImage]);
+
   return (
-    <div class="row">
-      <div class="column">
+    <div className="row">
+      <div className="column image-container">
         <img
-          alt="sehimg"
-          width="80%"
-          height="80%"
-          src={require("../assets/images/seh.jpg")}
+          alt="classImg"
+          src={imageArray[currentImageIndex]}
           className="image"
-          style={{ marginLeft: "20px" }}
         />
+        <button className="btn-left" onClick={handlePreviousImage}>{"<<"}</button>
+        <button className="btn-right" onClick={handleNextImage}>{">>"}</button>
       </div>
-      <div style={{ marginTop: "50px" }} class="column">
+      <div className="column content-container">
         <div>
           <h1>SuccessEduHub classes</h1>
           <p>A platform to make your career bright.</p>
