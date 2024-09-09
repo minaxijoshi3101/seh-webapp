@@ -4,11 +4,13 @@ import "../styles/Home.css";
 import ButtonComp from "../components/ButtonComp";
 import classImg from "../assets/images/slider/ClassRoom.jpg";
 import sehImg from "../assets/images/slider/seh.jpg";
+import jiraWFImg from "../assets/images/slider/JiraWorkflow.png"
+import ckaCertImg from "../assets/images/slider/CkaCert.jpg"
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const imageArray = [classImg, sehImg];
+  const imageArray = [classImg, sehImg, jiraWFImg, ckaCertImg];
 
   const handleNextImage = useCallback(() => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageArray.length);

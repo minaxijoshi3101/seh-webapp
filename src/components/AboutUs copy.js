@@ -1,8 +1,5 @@
 import React from "react";
 import "../styles/AboutUs.css"; // Import the CSS file
-import AboutUsCarousel from './AboutUsCarousel.jsx';  
-import slides from "../assets/data/carousalAboutUsData.json"
-
 const AboutUs = () => {
   return (
     <div className="about-us">
@@ -35,7 +32,41 @@ const AboutUs = () => {
         are not just teachers; they are mentors and guides, committed to helping
         you succeed.
       </p>
-      <AboutUsCarousel data={slides}/>
+      <img
+        src={require("../assets/images/CarouselAboutUs/amita.jpeg")}
+        alt="faculty1"
+        width="100"
+        height="100"
+        className="image"
+      />
+      <img
+        src={require("../assets/images/CarouselAboutUs/deepanshu.jpg")}
+        alt="faculty2"
+        width="100"
+        height="100"
+        className="image margin-left"
+      />
+      <img
+        src={require("../assets/images/CarouselAboutUs/sumit.jpg")}
+        alt="faculty3"
+        width="100"
+        height="100"
+        className="image  margin-left"
+      />
+      <img
+        src={require("../assets/images/CarouselAboutUs/vinita.jpg")}
+        alt="faculty3"
+        width="100"
+        height="100"
+        className="image  margin-left"
+      />
+      <img
+        src={require("../assets/images/CarouselAboutUs/minaxi.jpg")}
+        alt="faculty3"
+        width="100"
+        height="100"
+        className="image  margin-left"
+      />
       <h3 className=" margin"> Our Approach: </h3>
       <p>
         At SuccessEduHub, we believe in a holistic approach to education. We

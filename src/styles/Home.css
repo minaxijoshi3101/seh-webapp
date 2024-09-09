@@ -15,16 +15,16 @@
 
 .image-container {
   position: relative;
-  width: 80%;
-  margin-left: 20px;
+  width: 100%;
+  margin-left: 0px;
   overflow: hidden;
-  height: 300px; /* Adjusted height to make it thinner */
+  height: 400px; /* Adjusted height to make it thinner */
 }
 
 .image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image covers the container */
+  object-fit: fill; /* Ensure the image covers the container */
 }
 
 .btn-left,
