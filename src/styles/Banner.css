@@ -1,0 +1,25 @@
+/* Banner.css */
+.banner {
+    background-color: #f1f1f1; /* or any background color you prefer */
+    padding: 0; /* Remove padding for exact height control */
+    text-align: center;
+    z-index: 1000; /* Ensure this is higher than the navbar */
+    height: 69px; /* Set a fixed height */
+    width: 100vw; /* Full width of the viewport */
+    position: relative; /* Fixed position if needed */
+    top: 0; /* Aligns at the top of the viewport */
+    left: 0; /* Aligns at the left edge of the viewport */
+    overflow: hidden; /* Hide any overflow of image */
+  }
+  .banner img {
+    width: 100%; /* Make the image fit the width of the banner */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the banner area without stretching */
+  }
+  
+  /* Navbar.css */
+  .navbar {
+    position: relative;
+    z-index: 1; /* Ensure this is lower than the banner */
+  }
+  
