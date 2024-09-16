@@ -2,7 +2,7 @@
   display: flex;
   align-items: stretch; /* Ensure both columns stretch equally */
   margin: 0; /* Remove default margins */
-  padding: 0; /* Remove default padding */
+   /* padding: 0;Remove default padding */
   width: 100vw; /* Full viewport width */
   box-sizing: border-box; /* Include padding and border in element’s total width and height */
 }
@@ -54,7 +54,7 @@
 
 .content-container {
   text-align: center; /* Center text content */
-  margin-top: 0px; /* Reduced space from the image container */
+  margin-top: 50px; 
   /* Optional: Add a margin-bottom to the image container if needed */
 }
 

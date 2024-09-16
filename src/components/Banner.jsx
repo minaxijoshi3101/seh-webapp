@@ -1,6 +1,6 @@
 import React from 'react';
 import "../styles/Banner.css"; // Assuming you have a dedicated CSS file for the banner
-import bannerImage from "../assets/images/banner/banner-image.png"; // Assuming the banner image is stored here
+import bannerImage from "../assets/images/banner/banner.png"; // Assuming the banner image is stored here
 
 export default function Banner() {
   return (

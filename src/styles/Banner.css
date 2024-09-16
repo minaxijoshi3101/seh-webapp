@@ -4,7 +4,7 @@
     padding: 0; /* Remove padding for exact height control */
     text-align: center;
     z-index: 1000; /* Ensure this is higher than the navbar */
-    height: 69px; /* Set a fixed height */
+    height: 100px; /* Set a fixed height */
     width: 100vw; /* Full width of the viewport */
     position: relative; /* Fixed position if needed */
     top: 0; /* Aligns at the top of the viewport */
