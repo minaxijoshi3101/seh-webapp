@@ -68,6 +68,11 @@ const Home = () => {
           </div>
           <div className="chatbot-messages">
             <p>Hi! How can I help you?</p>
+
+            {/* Link to SEH Generative AI Page */}
+            <a href="http://localhost:8000/seh-generative-ai/blogs/" className="chatbot-link" target="_blank" rel="noopener noreferrer">
+              Visit SEH Generative AI Page
+            </a>
           </div>
           <div className="chatbot-input">
             <input type="text" placeholder="Type your message..." />
