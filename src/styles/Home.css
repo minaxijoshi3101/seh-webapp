@@ -21,7 +21,12 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  height: 400px; /* Adjust the height as needed */
+  height: auto; /* Allow the height to adjust based on the image */
+  max-height: 400px; /* Limit the height to a maximum */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Optional: add background color if the image has transparency */
 }
 
 /* Image Styles */
