@@ -63,7 +63,9 @@ const Home = () => {
       {isChatOpen && (
         <div className="chatbot-box">
           <div className="chatbot-header">
-            Visit SEH Generative AI Page for SEH techBot
+            <a href="http://localhost:8000/seh-generative-ai/blogs/" className="chatbot-link" target="_blank" rel="noopener noreferrer">
+              Visit SEH Generative AI Page for SEH techBot
+            </a>
             <button onClick={toggleChat}>X</button>
           </div>
           <div className="chatbot-messages">
