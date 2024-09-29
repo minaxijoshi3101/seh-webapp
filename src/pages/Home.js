@@ -63,20 +63,18 @@ const Home = () => {
       {isChatOpen && (
         <div className="chatbot-box">
           <div className="chatbot-header">
-            <h3>SEH Chatbot</h3>
+            Visit SEH Generative AI Page for SEH techBot
             <button onClick={toggleChat}>X</button>
           </div>
           <div className="chatbot-messages">
-            <p>Hi! How can I help you?</p>
-
-            {/* Link to SEH Generative AI Page */}
-            <a href="http://localhost:8000/seh-generative-ai/blogs/" className="chatbot-link" target="_blank" rel="noopener noreferrer">
-              Visit SEH Generative AI Page
-            </a>
-          </div>
-          <div className="chatbot-input">
-            <input type="text" placeholder="Type your message..." />
-            <button>Send</button>
+            <iframe
+              allow="microphone;"
+              width="100%"
+              height="100%"
+              src="https://console.dialogflow.com/api-client/demo/embedded/7146cc72-947e-41d6-b1e5-29a918d51041"
+              title="SEH Chatbot"
+              style={{ border: "none" }}
+            />
           </div>
         </div>
       )}
