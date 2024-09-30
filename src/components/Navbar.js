@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import Person4Icon from "@mui/icons-material/Person4";
 import { lightGreen } from "@mui/material/colors";
-import Banner from "./Banner"
+//import Banner from "./Banner"
 
 import "../styles/Navbar.css";
 
 const Navbar = (props) => {
   return (
     <React.Fragment>
-      <Banner/>
+      {/* <Banner/> */}
       <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <div className="leftSide">
