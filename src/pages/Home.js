@@ -11,14 +11,14 @@ import sehImg2 from "../assets/images/slider/seh.jpg";
 //import jiraWFImg from "../assets/images/slider/JiraWorkflow.png";
 import ckaCertImg from "../assets/images/slider/CkaCert.jpg";
 //import utetImg from "../assets/images/slider/UTET.jpg";
-import sehImg1 from "../assets/images/slider/img1.jpg";
+//import sehImg1 from "../assets/images/slider/img1.jpg";
 import sehImg3 from "../assets/images/slider/sehImg2.avif";
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  const imageArray = [classImg, hardWorkImg, sehImg1, sehImg2, sehImg3, ckaCertImg];
+  const imageArray = [classImg, hardWorkImg, sehImg2, sehImg3, ckaCertImg];
 
   const handleNextImage = useCallback(() => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageArray.length);
