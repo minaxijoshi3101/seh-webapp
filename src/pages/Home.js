@@ -12,13 +12,13 @@ import sehImg2 from "../assets/images/slider/seh.jpg";
 import ckaCertImg from "../assets/images/slider/CkaCert.jpg";
 //import utetImg from "../assets/images/slider/UTET.jpg";
 import sehImg1 from "../assets/images/slider/math.jpg";
-//import sehImg3 from "../assets/images/slider/sehImg2.avif";
+import sehImg3 from "../assets/images/slider/bull-stock.jpg";
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  const imageArray = [classImg, hardWorkImg, sehImg2, ckaCertImg, sehImg1];
+  const imageArray = [classImg, hardWorkImg, sehImg2, ckaCertImg, sehImg1, sehImg3];
 
   const handleNextImage = useCallback(() => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageArray.length);
