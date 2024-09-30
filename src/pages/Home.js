@@ -4,11 +4,13 @@ import "../styles/Home.css";
 import ButtonComp from "../components/ButtonComp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRobot } from "@fortawesome/free-solid-svg-icons";
-import classImg from "../assets/images/slider/ClassRoom.jpg";
+//import classImg from "../assets/images/slider/ClassRoom.jpg";
+import hardWorkImg from "../assets/images/slider/hard-work.jpg";
+import classImg from "../assets/images/slider/sky.jpg";
 import sehImg2 from "../assets/images/slider/seh.jpg";
 //import jiraWFImg from "../assets/images/slider/JiraWorkflow.png";
 import ckaCertImg from "../assets/images/slider/CkaCert.jpg";
-import utetImg from "../assets/images/slider/UTET.jpg";
+//import utetImg from "../assets/images/slider/UTET.jpg";
 import sehImg1 from "../assets/images/slider/img1.jpg";
 import sehImg3 from "../assets/images/slider/sehImg2.avif";
 
@@ -16,7 +18,7 @@ const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  const imageArray = [sehImg1, sehImg2, sehImg3, ckaCertImg];
+  const imageArray = [classImg, hardWorkImg, sehImg1, sehImg2, sehImg3, ckaCertImg];
 
   const handleNextImage = useCallback(() => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageArray.length);
