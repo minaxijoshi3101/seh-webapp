@@ -5,16 +5,17 @@ import ButtonComp from "../components/ButtonComp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRobot } from "@fortawesome/free-solid-svg-icons";
 import classImg from "../assets/images/slider/ClassRoom.jpg";
-import sehImg from "../assets/images/slider/seh.jpg";
+import sehImg2 from "../assets/images/slider/seh.jpg";
 import jiraWFImg from "../assets/images/slider/JiraWorkflow.png";
 import ckaCertImg from "../assets/images/slider/CkaCert.jpg";
 import utetImg from "../assets/images/slider/UTET.jpg";
+import sehImg1 from "../assets/images/slider/img1.jpg";
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  const imageArray = [classImg, sehImg, jiraWFImg, ckaCertImg, utetImg];
+  const imageArray = [sehImg1, classImg, sehImg2, jiraWFImg, ckaCertImg, utetImg];
 
   const handleNextImage = useCallback(() => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageArray.length);
