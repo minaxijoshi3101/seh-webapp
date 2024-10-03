@@ -61,3 +61,16 @@
   }
 }
 
+.dropdown-item {
+  padding: 10px 15px;
+  text-align: center;
+  display: block;
+  color: #000;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+

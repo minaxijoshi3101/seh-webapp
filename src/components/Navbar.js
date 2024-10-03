@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import Person4Icon from "@mui/icons-material/Person4";
 import { lightGreen } from "@mui/material/colors";
-//import Banner from "./Banner"
-
 import "../styles/Navbar.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = (props) => {
+  const { user, loginWithRedirect, isAuthenticated, logout } = useAuth0();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  // Function to get user initials
+  const getUserInitials = (name) => {
+    const initials = name
+      .split(" ")
+      .map((n) => n[0])
+      .join("")
+      .toUpperCase();
+    return initials;
+  };
+
+  // Toggle dropdown on hover
+  const handleMouseEnter = () => {
+    setDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setDropdownOpen(false);
+  };
+
   return (
     <React.Fragment>
-      {/* <Banner/> */}
       <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <div className="leftSide">
@@ -39,7 +59,7 @@ const Navbar = (props) => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ms-auto">
+            <ul className="navbar-nav ms-auto align-items-center">
               <li className="nav-item">
                 <Link className="nav-link" to="/">
                   Home
@@ -71,16 +91,107 @@ const Navbar = (props) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Person4Icon
-                  style={{ backgroundColor: lightGreen[500] }}
-                  sx={{ fontSize: "40px" }}
-                  onClick={(event) => (window.location.href = "pagelink")}
-                />
+                {isAuthenticated ? (
+                  <div
+                    style={{ position: "relative" }}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    {/* User initials and icon */}
+                    <div style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+                      <Person4Icon
+                        style={{
+                          backgroundColor: lightGreen[500],
+                          marginRight: "5px",
+                          fontSize: "25px",
+                        }}
+                      />
+                      <span>{getUserInitials(user.name)}</span>
+                    </div>
+
+                    {/* Dropdown menu on hover */}
+                    {dropdownOpen && (
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "100%",
+                          right: "0",
+                          backgroundColor: "white",
+                          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                          borderRadius: "5px",
+                          zIndex: 1,
+                          width: "120px", // Ensure consistent width for items
+                        }}
+                      >
+                        <ul
+                          style={{
+                            listStyle: "none",
+                            padding: "5px 0",
+                            margin: 0,
+                            textAlign: "right",
+                          }}
+                        >
+                          <li style={{ padding: "10px", textAlign: "center" }}>
+                            <Link to="/my-tales" className="nav-link" style={{ padding: "0" }}>
+                              My Tales
+                            </Link>
+                          </li>
+                          <li style={{ padding: "10px", textAlign: "center" }}>
+                            <Link to="/my-tales" className="nav-link" style={{ padding: "0" }}>
+                              My ToDo List
+                            </Link>
+                          </li>
+                          <li style={{ padding: "10px", textAlign: "center" }}>
+                            <button
+                              onClick={() =>
+                                logout({
+                                  returnTo: window.location.origin,
+                                })
+                              }
+                              style={{
+                                background: "none",
+                                border: "none",
+                                cursor: "pointer",
+                                padding: 0,
+                                margin: 0,
+                                color: "inherit",
+                              }}
+                            >
+                              Logout
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    {/* Login Button */}
+                    <button
+                      onClick={() => loginWithRedirect()}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Person4Icon
+                        style={{
+                          backgroundColor: lightGreen[500],
+                          marginRight: "5px",
+                        }}
+                        sx={{ fontSize: "25px" }}
+                      />
+                      <span>Login</span>
+                    </button>
+                  </div>
+                )}
               </li>
             </ul>
           </div>
         </div>
-        <div className="bg"></div>
       </nav>
     </React.Fragment>
   );

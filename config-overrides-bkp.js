@@ -1,0 +1,23 @@
+const webpack = require('webpack');
+
+module.exports = function override(config, env) {
+  // Add fallbacks for Node.js core modules
+  config.resolve.fallback = {
+    crypto: require.resolve('crypto-browserify'),
+    os: require.resolve('os-browserify/browser'),
+    path: require.resolve('path-browserify'),
+    buffer: require.resolve('buffer/'),
+    stream: require.resolve('stream-browserify'),
+    process: require.resolve('process/browser'),
+  };
+
+  // ProvidePlugin to make process and Buffer available
+  config.plugins.push(
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+      Buffer: ['buffer', 'Buffer'],
+    })
+  );
+
+  return config;
+};
