@@ -123,39 +123,24 @@ const Navbar = (props) => {
                           width: "120px", // Ensure consistent width for items
                         }}
                       >
-                        <ul
-                          style={{
-                            listStyle: "none",
-                            padding: "5px 0",
-                            margin: 0,
-                            textAlign: "right",
-                          }}
-                        >
-                          <li style={{ padding: "10px", textAlign: "center" }}>
-                            <Link to="/my-tales" className="nav-link" style={{ padding: "0" }}>
+                        <ul>
+                          <li>
+                          <Link to="/my-tales" className="nav-link">
                               My Tales
                             </Link>
                           </li>
-                          <li style={{ padding: "10px", textAlign: "center" }}>
-                            <Link to="/my-tales" className="nav-link" style={{ padding: "0" }}>
+                          <li>
+                            <Link to="/my-todo" className="nav-link">
                               My ToDo List
                             </Link>
                           </li>
-                          <li style={{ padding: "10px", textAlign: "center" }}>
+                          <li>
                             <button
                               onClick={() =>
                                 logout({
                                   returnTo: window.location.origin,
                                 })
                               }
-                              style={{
-                                background: "none",
-                                border: "none",
-                                cursor: "pointer",
-                                padding: 0,
-                                margin: 0,
-                                color: "inherit",
-                              }}
                             >
                               Logout
                             </button>
