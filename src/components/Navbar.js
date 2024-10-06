@@ -7,7 +7,7 @@ import "../styles/Navbar.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = (props) => {
-  const { user, loginWithRedirect, isAuthenticated, logout } = useAuth0();
+  const { user, loginWithRedirect, isAuthenticated, logout, getAccessTokenSilently } = useAuth0();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   // Function to get user initials
@@ -19,6 +19,28 @@ const Navbar = (props) => {
       .toUpperCase();
     return initials;
   };
+
+  const sendTokenToBackend = async () => {
+    if (isAuthenticated) {
+      const token = await getAccessTokenSilently();
+      const userData = {
+        token: token,
+        user_info: user,
+      };
+  
+  // Send user info and token to backend Django API
+  fetch('/api/auth/store-token/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(userData),
+  })
+  .then(response => response.json())
+  .then(data => console.log('Token stored:', data))
+  .catch(error => console.error('Error:', error));
+}
+};
 
   // Toggle dropdown on hover
   const handleMouseEnter = () => {
@@ -106,7 +128,8 @@ const Navbar = (props) => {
                           fontSize: "25px",
                         }}
                       />
-                      <span>{getUserInitials(user.name)}</span>
+                      <span>{getUserInitials(user.name)} </span>
+                      <img src={user.picture} alt={user.name}></img>
                     </div>
 
                     {/* Dropdown menu on hover */}
