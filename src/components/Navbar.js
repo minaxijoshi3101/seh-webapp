@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
-import Person4Icon from "@mui/icons-material/Person4";
 import { lightGreen } from "@mui/material/colors";
+import Person4Icon from "@mui/icons-material/Person4";  // Import Person4Icon
 import "../styles/Navbar.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = (props) => {
-  //const { user, loginWithRedirect, isAuthenticated, logout, getAccessTokenSilently } = useAuth0();
   const { user, loginWithRedirect, isAuthenticated, logout } = useAuth0();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -20,28 +19,6 @@ const Navbar = (props) => {
       .toUpperCase();
     return initials;
   };
-
- /*  const sendTokenToBackend = async () => {
-    if (isAuthenticated) {
-      const token = await getAccessTokenSilently();
-      const userData = {
-        token: token,
-        user_info: user,
-      };
-  
-  // Send user info and token to backend Django API
-  fetch('/api/auth/store-token/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(userData),
-  })
-  .then(response => response.json())
-  .then(data => console.log('Token stored:', data))
-  .catch(error => console.error('Error:', error));
-}
-}; */
 
   // Toggle dropdown on hover
   const handleMouseEnter = () => {
@@ -120,17 +97,34 @@ const Navbar = (props) => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
-                    {/* User initials and icon */}
+                    {/* Display user's image instead of Person4Icon */}
                     <div style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
-                      <Person4Icon
-                        style={{
-                          backgroundColor: lightGreen[500],
-                          marginRight: "5px",
-                          fontSize: "25px",
-                        }}
-                      />
-                      <span>{getUserInitials(user.name)} </span>
-                      <img src={user.picture} alt={user.name}></img>
+                      {user.picture ? (
+                        <img
+                          width="30"
+                          height="30"
+                          src={user.picture}
+                          alt={user.name}
+                          style={{ borderRadius: "50%", marginRight: "10px" }}
+                        />
+                      ) : (
+                        <div
+                          style={{
+                            width: "30px",
+                            height: "30px",
+                            backgroundColor: lightGreen[500],
+                            color: "white",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            borderRadius: "50%",
+                            marginRight: "10px",
+                          }}
+                        >
+                          {getUserInitials(user.name)}
+                        </div>
+                      )}
+                      <span>{user.name}</span>
                     </div>
 
                     {/* Dropdown menu on hover */}
@@ -144,12 +138,12 @@ const Navbar = (props) => {
                           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
                           borderRadius: "5px",
                           zIndex: 1,
-                          width: "120px", // Ensure consistent width for items
+                          width: "120px",
                         }}
                       >
                         <ul>
                           <li>
-                          <Link to="/my-tales" className="nav-link">
+                            <Link to="/my-tales" className="nav-link">
                               My Tales
                             </Link>
                           </li>
@@ -175,7 +169,14 @@ const Navbar = (props) => {
                   </div>
                 ) : (
                   <div style={{ display: "flex", alignItems: "center" }}>
-                    {/* Login Button */}
+                    {/* Display Person4Icon when not logged in */}
+                    <Person4Icon
+                      style={{
+                        color: lightGreen[500],
+                        fontSize: 30,
+                        marginRight: "10px",
+                      }}
+                    />
                     <button
                       onClick={() => loginWithRedirect()}
                       style={{
@@ -186,13 +187,6 @@ const Navbar = (props) => {
                         alignItems: "center",
                       }}
                     >
-                      <Person4Icon
-                        style={{
-                          backgroundColor: lightGreen[500],
-                          marginRight: "5px",
-                        }}
-                        sx={{ fontSize: "25px" }}
-                      />
                       <span>Login</span>
                     </button>
                   </div>
