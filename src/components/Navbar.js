@@ -7,7 +7,8 @@ import "../styles/Navbar.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = (props) => {
-  const { user, loginWithRedirect, isAuthenticated, logout, getAccessTokenSilently } = useAuth0();
+  //const { user, loginWithRedirect, isAuthenticated, logout, getAccessTokenSilently } = useAuth0();
+  const { user, loginWithRedirect, isAuthenticated, logout } = useAuth0();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   // Function to get user initials
