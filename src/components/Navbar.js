@@ -26,7 +26,7 @@ const Navbar = (props) => {
       const userData = {
         token: token,
         user_info: user,
-      }; */
+      };
   
   // Send user info and token to backend Django API
   fetch('/api/auth/store-token/', {
@@ -40,7 +40,7 @@ const Navbar = (props) => {
   .then(data => console.log('Token stored:', data))
   .catch(error => console.error('Error:', error));
 }
-};
+}; */
 
   // Toggle dropdown on hover
   const handleMouseEnter = () => {
