@@ -20,13 +20,13 @@ const Navbar = (props) => {
     return initials;
   };
 
-  const sendTokenToBackend = async () => {
+ /*  const sendTokenToBackend = async () => {
     if (isAuthenticated) {
       const token = await getAccessTokenSilently();
       const userData = {
         token: token,
         user_info: user,
-      };
+      }; */
   
   // Send user info and token to backend Django API
   fetch('/api/auth/store-token/', {
