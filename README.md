@@ -50,3 +50,4 @@ Access using IP:80
 #Backend: Node.js
 
 \*\*\*To automate the deployment process - ` https://github.com/minaxijoshi3101/devops_automation_mas.git repo` has been created.
+\*\*\*To Deploy a React WebApp in NGINX - ` https://medium.com/@minaxijoshi3101/deploy-a-react-webapp-in-nginx-webserver-19c31168fa0a `.
