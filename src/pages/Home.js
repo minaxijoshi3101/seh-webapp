@@ -2,22 +2,20 @@ import React, { useState, useEffect, useCallback } from "react";
 import "../styles/AboutUs.css";
 import "../styles/Home.css";
 import ButtonComp from "../components/ButtonComp";
+import StudentDetails from "../components/StudentDetails"; // ✅ Import
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRobot } from "@fortawesome/free-solid-svg-icons";
-//import classImg from "../assets/images/slider/ClassRoom.jpg";
+
 import hardWorkImg from "../assets/images/slider/hard-work.jpg";
 import classImg from "../assets/images/slider/sky.jpg";
 import sehImg2 from "../assets/images/slider/seh.jpg";
-//import jiraWFImg from "../assets/images/slider/JiraWorkflow.png";
 import ckaCertImg from "../assets/images/slider/CkaCert.jpg";
-//import utetImg from "../assets/images/slider/UTET.jpg";
 import sehImg1 from "../assets/images/slider/math.jpg";
 import sehImg3 from "../assets/images/slider/bull-stock.jpg";
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isChatOpen, setIsChatOpen] = useState(false);
-
   const imageArray = [classImg, hardWorkImg, sehImg2, ckaCertImg, sehImg1, sehImg3];
 
   const handleNextImage = useCallback(() => {
@@ -50,6 +48,7 @@ const Home = () => {
         <button className="btn-left" onClick={handlePreviousImage}>{"<<"}</button>
         <button className="btn-right" onClick={handleNextImage}>{">>"}</button>
       </div>
+
       <div className="column content-container">
         <div>
           <h1>SuccessEduHub classes</h1>
@@ -58,7 +57,12 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Chatbot icon in the bottom-right */}
+      {/* ✅ Student Details now separated */}
+      <div className="column content-container">
+        <StudentDetails />
+      </div>
+
+      {/* Chatbot icon */}
       <div className="chatbot-icon" onClick={toggleChat}>
         <FontAwesomeIcon icon={faRobot} size="2x" />
       </div>
@@ -67,7 +71,12 @@ const Home = () => {
       {isChatOpen && (
         <div className="chatbot-box">
           <div className="chatbot-header">
-            <a href="http://localhost:8000/seh-generative-ai/blogs/" className="chatbot-link" target="_blank" rel="noopener noreferrer">
+            <a
+              href="http://localhost:8000/seh-generative-ai/blogs/"
+              className="chatbot-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Visit SEH Generative AI Page for SEH techBot
             </a>
             <button onClick={toggleChat}>X</button>
