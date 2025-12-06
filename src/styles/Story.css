@@ -1,0 +1,84 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.publish-button {
+  position: absolute;
+  top: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: rgb(64, 223, 7);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2; /* Ensure it is above other elements */
+}
+
+.publish-button:hover {
+  background-color: #0056b3; /* Adjust hover color as needed */
+}
+
+.page-container {
+  width: 100%;
+  min-height: 100vh; /* Use min-height to allow page scrolling */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px; /* Add padding for spacing from the top */
+  box-sizing: border-box;
+}
+
+.text-area-container {
+  position: relative;
+  width: 60%; /* Adjust width as needed */
+  display: flex;
+  flex-direction: column;
+}
+
+.full-page-textarea {
+  width: 100%;
+  min-height: 80vh; /* Adjust min-height for desired text area size */
+  padding: 20px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 24px;
+  background-color: transparent;
+  color: #333;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.title-textarea {
+  width: 100%;
+  min-height: 10vh; /* Adjusted min-height for smaller height */
+  padding: 20px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 50px;
+  background-color: transparent;
+  color: #333;
+  font-family: "Lora", serif;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.text-area-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: rgba(0, 0, 0, 0.1);
+  z-index: 0;
+  pointer-events: none;
+}

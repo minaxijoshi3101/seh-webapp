@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+![image](https://github.com/minaxijoshi3101/seh-webapp/assets/25228357/e0172ee6-2f78-400c-bacb-1c48c6d035aa)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SEH-webapp - This is a web application built using Node.js for providing educational resources and services.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Enrollment**: Enroll in courses and track progress. Students can enroll themselves for a demo or join a new batch using the 'Enroll Now' button conveniently located on the homepage.
+- **About Us**: About SEH and Brief description of Instructors.
+- **Subjects**: Description of subjects
+- **Videos**: Access the comprehensive collection of educational videos covering various topics of SEH.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Clone the repository:**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   ```bash
+   https://github.com/minaxijoshi3101/seh-webapp.git
 
-### `npm test`
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Install dependencies:**
 
-### `npm run build`
+   ```bash
+   cd seh-webapp
+   npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Start the server:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+## Using Docker
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Dockerfile is available with source code.
+To start the application as a container - nginx web server is used
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. create and image out of Dockerfile
+   docker build -t seh-webapp:1.0.0 .
+2. Spin up a container out of it:
+   docker run -dt --name seh-webapp-container -p 80:80 seh-webapp:1.0.0
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Access using IP:80
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## \*\*\*\*Technologies Used
 
-## Learn More
+#Frontend: HTML, CSS, JavaScript, Bootstrap
+#Backend: Node.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+\*\*\*To automate the deployment process - ` https://github.com/minaxijoshi3101/devops_automation_mas.git repo` has been created.
+\*\*\*To Deploy a React WebApp in NGINX - ` https://medium.com/@minaxijoshi3101/deploy-a-react-webapp-in-nginx-webserver-19c31168fa0a `.

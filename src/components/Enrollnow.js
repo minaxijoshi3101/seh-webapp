@@ -124,7 +124,7 @@ const Enrollnow = () => {
       return;
     }
     try {
-      await fetch("http://localhost:8080/api/v1/student/register", {
+      await fetch("https://localhost:8443/api/v1/student/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

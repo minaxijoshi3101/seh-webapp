@@ -1,19 +1,19 @@
-#Block 1 - Build docker image for react app
-FROM node:21.7.1-slim as build-stage
-WORKDIR /seh-webapp
+FROM node:18-alpine
+
+# Set environment variable for Node.js
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
+# Create and set working directory
+RUN mkdir -p /datadisk/nodejs/seh-webapp
+WORKDIR /datadisk/nodejs/seh-webapp/
+
+# Copy package.json and install dependencies
 COPY package.json .
 RUN npm install
-COPY . .
-EXPOSE 8080
-USER root
-RUN npm run build
-#RUN npm start
 
-#Block 2 -  Deploy app in nginx
-FROM nginx:alpine
-#for dynamic app
-#COPY ./default.conf /etc/nginx/conf.d
-WORKDIR /usr/share/nginx/html
-RUN rm -rf ./*
-COPY --from=build-stage /seh-webapp/build .
-ENTRYPOINT ["nginx","-g","daemon off;"]
+# Copy remaining files
+COPY build . .
+
+# Expose port and set command
+EXPOSE 3000
+CMD ["npm", "start"]
