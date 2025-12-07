@@ -8,14 +8,14 @@ ART_USER="amitajoshi1992@gmail.com"
 ART_API_KEY=$1
 
 npm install
-
 npm run build
 
-tar -cf seh-webapp.tgz build/
+tar -czf seh-webapp.tgz build/
 
-app_name=$(jq -r '.app_name' package.json)
+app_name=$(jq -r '.name' package.json)
 
 version=$(jq -r '.version' package.json)
+
 
 echo "app_name: $app_name"
 echo "version: $version"
