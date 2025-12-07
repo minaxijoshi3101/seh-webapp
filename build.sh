@@ -11,9 +11,9 @@ npm install
 
 npm run build
 
-tar -czf seh-webapp.tgz build/
+tar -cf seh-webapp.tgz build/
 
-app_name=$(jq -r '.name' package.json)
+app_name=$(jq -r '.app_name' package.json)
 
 version=$(jq -r '.version' package.json)
 
