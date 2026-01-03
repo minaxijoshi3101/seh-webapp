@@ -1,2 +1,25 @@
-@Library(["devops_automation_mas@release/devops"]) _
-build_and_deployment_SIT([PropertyFileName:"build-spec.properties",RepoName:"seh-webapp",BranchName:"develop",ProjectName:"minaxijoshi3101"])
+pipeline{
+    agent any 
+    stages{
+        stage('Build'){
+            steps{
+                echo 'Building...'
+            }
+        }
+        stage('Unit Test'){
+            steps{
+                echo 'Testing...'
+            }
+        }
+        stage('Sonar Scan'){
+            steps{
+                echo 'Scanning...'
+            }
+        }
+        stage('Upload Artifacts'){
+            steps{
+                echo 'Uploading artifacts...'
+            }
+        }
+    }
+}
