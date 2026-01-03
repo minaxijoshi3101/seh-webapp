@@ -18,7 +18,7 @@ pipeline{
         }
         stage('Upload Artifacts'){
             steps{
-                echo 'Uploading artifacts...'
+                echo 'Uploading artifacts done...'
             }
         }
     }
