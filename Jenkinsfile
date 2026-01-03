@@ -4,6 +4,7 @@ pipeline{
         stage('Build'){
             steps{
                 echo 'Building...'
+                echo 'Build completed.'
             }
         }
         stage('Unit Test'){
